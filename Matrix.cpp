@@ -7,7 +7,6 @@ int third(pair <int, int> a);
 int sum = 0;
 
 int sort(pair <int, int> a) {
-    //cout << sum << endl;
     if (c == 3) { return  third(a); }
     if (c > 3) {
         c -= 1;
@@ -15,7 +14,7 @@ int sort(pair <int, int> a) {
             if (i == 0) {
                 int a1 = a.first + 1;
                 int a2 = a.second + 1;
-                sum += sort(make_pair(a1,a2));
+                sum += m[a.first][a.second + i] *sort(make_pair(a1,a2));
             }
             if ((i != 0)&&(i != c)) {
                 int y;
@@ -32,8 +31,7 @@ int sort(pair <int, int> a) {
                 int a1 = a.first + 1;
                 int a2 = a.second + 1;
                 sum += m[a.first][a.second+i] * y * sort(make_pair(a1,a2));
-                //cout << sum << endl;
-                for (int j = a.first; j <= c; j++) {
+                for (int j = a.first+1; j <= c; j++) {
                     p = m[j][a.second];
                     for (int k = a.second; k <= i-1; k++) {
                         m[j][k] = m[j][k + 1];
@@ -48,12 +46,12 @@ int sort(pair <int, int> a) {
                 int a1 = a.first + 1;
                 int a2 = a.second;
                 sum += m[a.first][a.second+i] * y * sort(make_pair(a1, a2));
-                //cout << sum << endl;
             }
 
         }
-        return sum;
+
     }
+    return sum;
 
 }
 
