@@ -4,10 +4,10 @@ using namespace std;
 int m[100][100];
 int c = 0;
 int third(pair <int, int> a);
-int sum = 0; //suka
+int sum = 0;
 
 int sort(pair <int, int> a) {
-    cout << sum << endl;
+    //cout << sum << endl;
     if (c == 3) { return  third(a); }
     if (c > 3) {
         c -= 1;
@@ -31,7 +31,8 @@ int sort(pair <int, int> a) {
                 }
                 int a1 = a.first + 1;
                 int a2 = a.second + 1;
-                sum += m[a.first][i] * y * sort(make_pair(a1,a2));
+                sum += m[a.first][a.second+i] * y * sort(make_pair(a1,a2));
+                //cout << sum << endl;
                 for (int j = a.first; j <= c; j++) {
                     p = m[j][a.second];
                     for (int k = a.second; k <= i-1; k++) {
@@ -46,7 +47,8 @@ int sort(pair <int, int> a) {
                 else { y = 1; }
                 int a1 = a.first + 1;
                 int a2 = a.second;
-                sum += m[a.first][i] * y * sort(make_pair(a1, a2));
+                sum += m[a.first][a.second+i] * y * sort(make_pair(a1, a2));
+                //cout << sum << endl;
             }
 
         }
@@ -90,4 +92,3 @@ int main()
     
     return 0;
 }
-
