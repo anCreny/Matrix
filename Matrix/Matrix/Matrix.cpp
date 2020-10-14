@@ -1,11 +1,11 @@
-#include <iostream>
+﻿#include <iostream>
 using namespace std;
 
 int m[100][100];
 int c = 0;
 int third(pair <int, int> a);
 int sum = 0;
-
+//сука работай
 int sort(pair <int, int> a) {
     if (c == 3) { return  third(a); }
     if (c > 3) {
@@ -23,7 +23,7 @@ int sort(pair <int, int> a) {
                 else { y = 1; }
                 for (int j = a.first+1;  j <= c; j++) {
                     p = m[j][a.second + i];
-                    for (int k = i; k >= a.second + 1; k--) {
+                    for (int k = a.second + i; k >= a.second + 1; k--) {
                         m[j][k] = m[j][k-1];
                     }
                     m[j][a.second] = p;
@@ -33,7 +33,7 @@ int sort(pair <int, int> a) {
                 sum += m[a.first][i] * y * sort(make_pair(a1,a2));
                 for (int j = a.first; j <= c; j++) {
                     p = m[j][a.second];
-                    for (int k = a.second; k <= i-1; k++) {
+                    for (int k = a.second; k <= a.second + i-1; k++) {
                         m[j][k] = m[j][k + 1];
                     }
                     m[j][a.second+i] = p;
