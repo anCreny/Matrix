@@ -5,7 +5,7 @@ int m[100][100];
 int c = 0;
 int third(pair <int, int> a);
 int sum = 0;
-//сука работай
+//сука работай1212
 int sort(pair <int, int> a) {
     if (c == 3) { return  third(a); }
     if (c > 3) {
